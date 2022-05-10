@@ -1,7 +1,14 @@
-const esModules = ['quasar/lang', 'lodash-es'].join('|');
+const esModules = [
+  'quasar/lang',
+  '@quasar/extras',
+  'lodash-es',
+  '@polkadot',
+  '@babel/runtime/helpers/esm/',
+].join('|');
 
 /* eslint-env node */
 module.exports = {
+  modulePaths: ['<rootDir>'],
   globals: {
     __DEV__: true,
     // TODO: Remove if resolved natively
@@ -67,8 +74,7 @@ module.exports = {
     //  (sync) .babelrc, .babelrc.js, babel.config.js, package.json
     // https://github.com/tleunen/find-babel-config/issues/33
     '.*\\.vue$': 'vue-jest',
-    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':
-      'jest-transform-stub',
+    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   transformIgnorePatterns: [`node_modules/(?!(${esModules}))`],
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
