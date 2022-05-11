@@ -55,7 +55,8 @@ export interface Wallet {
 
 export const supportWalletObj = {
   [SupportWallet.PolkadotJs]: {
-    img: require('/src/assets/img/logo-polkadot-js.png'),
+    // img: require('/src/assets/img/logo-polkadot-js.png'),
+    img: require('../assets/img/logo-polkadot-js.png'),
     name: 'Polkadot.js',
     source: SupportWallet.PolkadotJs,
     walletUrl: 'https://polkadot.js.org/extension/',
@@ -64,7 +65,7 @@ export const supportWalletObj = {
     isSupportMobileApp: false,
   },
   [SupportWallet.Clover]: {
-    img: require('/src/assets/img/logo-clover.png'),
+    img: require('../assets/img/logo-clover.png'),
     name: 'Clover',
     source: SupportWallet.Clover,
     walletUrl: 'https://clover.finance/',
@@ -73,7 +74,7 @@ export const supportWalletObj = {
     isSupportMobileApp: false,
   },
   [SupportWallet.Talisman]: {
-    img: require('/src/assets/img/logo-talisman.svg'),
+    img: require('../assets/img/logo-talisman.svg'),
     name: 'Talisman',
     source: SupportWallet.Talisman,
     walletUrl: 'https://app.talisman.xyz/',
@@ -82,7 +83,7 @@ export const supportWalletObj = {
     isSupportMobileApp: false,
   },
   [SupportWallet.Math]: {
-    img: require('/src/assets/img/logo-mathwallet.png'),
+    img: require('../assets/img/logo-mathwallet.png'),
     name: 'Math Wallet',
     source: SupportWallet.Math,
     walletUrl: 'https://mathwallet.org/en-us/',
@@ -91,7 +92,7 @@ export const supportWalletObj = {
     isSupportMobileApp: true,
   },
   [SupportWallet.Nova]: {
-    img: require('/src/assets/img/logo-nova.png'),
+    img: require('../assets/img/logo-nova.png'),
     name: 'Nova Wallet',
     source: SupportWallet.Nova,
     walletUrl: 'https://novawallet.io/',
@@ -100,7 +101,7 @@ export const supportWalletObj = {
     isSupportMobileApp: true,
   },
   [SupportWallet.SubWallet]: {
-    img: require('/src/assets/img/logo-subwallet.svg'),
+    img: require('../assets/img/logo-subwallet.svg'),
     name: 'SubWallet',
     source: SupportWallet.SubWallet,
     walletUrl: 'https://subwallet.app/',
@@ -109,7 +110,7 @@ export const supportWalletObj = {
     isSupportMobileApp: false,
   },
   [SupportWallet.Metadot]: {
-    img: require('/src/assets/img/logo-metadot.png'),
+    img: require('../assets/img/logo-metadot.png'),
     name: 'Metadot',
     source: SupportWallet.Metadot,
     walletUrl: 'https://metadot.app/',
@@ -121,7 +122,7 @@ export const supportWalletObj = {
 
 export const supportEvmWalletObj = {
   [SupportWallet.MetaMask]: {
-    img: require('/src/assets/img/metamask.png'),
+    img: require('../assets/img/metamask.png'),
     name: 'MetaMask',
     source: SupportWallet.MetaMask,
     walletUrl: 'https://metamask.io/',
@@ -130,7 +131,7 @@ export const supportEvmWalletObj = {
     isSupportMobileApp: true,
   },
   [SupportWallet.Wallet3]: {
-    img: require('/src/assets/img/logo-wallet3.svg'),
+    img: require('../assets/img/logo-wallet3.svg'),
     name: 'Wallet 3',
     source: SupportWallet.Wallet3,
     walletUrl: 'https://wallet3.io',

@@ -1,3 +1,6 @@
+require('@polkadot/api-augment');
+const path = require("path");
+
 const esModules = [
   'quasar/lang',
   '@quasar/extras',
@@ -8,7 +11,10 @@ const esModules = [
 
 /* eslint-env node */
 module.exports = {
-  modulePaths: ['<rootDir>'],
+  // modulePaths: ['<rootDir>'],
+  // TODO setup module directories to work with aboslute paths (e.g. require('/src/assets/img/ic_shiden.png'))
+  rootDir: '.',
+  moduleDirectories: ['node_modules', path.join(__dirname, 'src'), 'assets', 'img'],
   globals: {
     __DEV__: true,
     // TODO: Remove if resolved natively

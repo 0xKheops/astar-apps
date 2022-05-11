@@ -51,7 +51,8 @@ export const providerEndpoints: ChainProvider[] = [
     evmChainId: '592',
     evmEndpoints: ['https://evm.astar.network', 'https://astar.api.onfinality.io/public'],
     faucetEndpoint: 'https://astar-discord-faucet.herokuapp.com/astar',
-    defaultLogo: require('/src/assets/img/ic_astar.png'),
+    // defaultLogo: require('/src/assets/img/ic_astar.png'),
+    defaultLogo: require('../assets/img/ic_astar.png'),
   },
   {
     networkAlias: 'shiden',
@@ -74,7 +75,8 @@ export const providerEndpoints: ChainProvider[] = [
     evmChainId: '336',
     evmEndpoints: ['https://evm.shiden.astar.network', 'https://shiden.api.onfinality.io/public'],
     faucetEndpoint: 'https://astar-discord-faucet.herokuapp.com/shiden',
-    defaultLogo: require('/src/assets/img/ic_shiden.png'),
+    // defaultLogo: require('/src/assets/img/ic_shiden.png'),
+    defaultLogo: require('../assets/img/ic_shiden.png'),
   },
   {
     networkAlias: 'shibuya-testnet',
@@ -92,7 +94,8 @@ export const providerEndpoints: ChainProvider[] = [
     evmChainId: '81',
     evmEndpoints: ['https://evm.shibuya.astar.network'],
     faucetEndpoint: 'https://astar-discord-faucet.herokuapp.com/shibuya',
-    defaultLogo: require('/src/assets/img/ic_shibuya.png'),
+    // defaultLogo: require('/src/assets/img/ic_shibuya.png'),
+    defaultLogo: require('../assets/img/ic_shibuya.png'),
   },
   {
     networkAlias: 'local-node',
