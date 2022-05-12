@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { shallowMount } from '@vue/test-utils';
 import TokenPriceChart from 'src/components/dashboard/TokenPriceChart.vue';
-import actions from 'src/store/general/actions';
 
 jest.spyOn(axios, 'get');
 
