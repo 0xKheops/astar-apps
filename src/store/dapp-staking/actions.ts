@@ -329,8 +329,8 @@ const actions: ActionTree<State, StateInterface> = {
   async getClaimInfo({ dispatch, commit }, parameters: StakingParameters): Promise<ClaimInfo> {
     let accumulatedReward = new BN(0);
     let result: ClaimInfo = {} as ClaimInfo;
-    result.rewards = parameters.api.createType('Balance', accumulatedReward);
-    result.estimatedClaimedRewards = parameters.api.createType('Balance', 0);
+    result.rewards = <Balance>parameters.api.createType('Balance', accumulatedReward);
+    result.estimatedClaimedRewards = <Balance>parameters.api.createType('Balance', 0);
     commit('general/setLoading', true, { root: true });
 
     try {
