@@ -39,6 +39,7 @@ describe('TVL.vue', () => {
     // component fetches data in async way so we need to handle expect in a way below.
     wrapper.vm.$nextTick(() => {
       expect(wrapper.text()).toContain('$200');
+      mock.mockRestore();
       done();
     });
   });
