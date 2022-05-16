@@ -1,3 +1,4 @@
+import '@polkadot/api-augment';
 import axios from 'axios';
 import { shallowMount } from '@vue/test-utils';
 import TokenPriceChart from 'src/components/dashboard/TokenPriceChart.vue';

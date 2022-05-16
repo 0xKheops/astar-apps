@@ -8,7 +8,7 @@ import { useChainMetadata } from '.';
 import { getUsdPrice } from './helper/price';
 
 // TODO typegeneration
-interface EraInfo extends Struct {
+export interface EraInfo extends Struct {
   rewards: {
     stakers: Balance;
     dapps: Balance;

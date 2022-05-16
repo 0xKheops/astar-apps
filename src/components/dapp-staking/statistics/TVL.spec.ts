@@ -1,3 +1,4 @@
+import '@polkadot/api-augment';
 import { mount } from '@vue/test-utils';
 import { ref } from 'vue';
 import TVL from 'src/components/dapp-staking/statistics/TVL.vue';
