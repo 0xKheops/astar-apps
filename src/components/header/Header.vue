@@ -46,12 +46,6 @@
       :set-close-modal="setCloseModal"
       :selected-wallet="selectedWallet"
     />
-
-    <ModalUpdateWallet
-      v-if="modalName === WalletModalOption.OutdatedWallet"
-      :set-close-modal="setCloseModal"
-      :selected-wallet="selectedWallet"
-    />
   </div>
 </template>
 
@@ -70,7 +64,6 @@ import ModalAccount from 'src/components/header/modals/ModalAccount.vue';
 import ModalInstallWallet from 'src/components/header/modals/ModalInstallWallet.vue';
 import ModalNetwork from 'src/components/header/modals/ModalNetwork.vue';
 import Logo from 'src/components/common/Logo.vue';
-import ModalUpdateWallet from './modals/ModalUpdateWallet.vue';
 
 interface Modal {
   modalNetwork: boolean;
@@ -86,7 +79,6 @@ export default defineComponent({
     ModalInstallWallet,
     ModalNetwork,
     Logo,
-    ModalUpdateWallet,
   },
   setup() {
     const { width, screenSize } = useBreakpoints();

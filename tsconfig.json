@@ -4,6 +4,5 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "jsx": "preserve"
   }
 }

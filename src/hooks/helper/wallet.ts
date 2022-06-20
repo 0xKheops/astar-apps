@@ -10,9 +10,6 @@ import { Dispatch } from 'vuex';
 import { SubstrateAccount } from './../../store/general/state';
 import { SubmittableExtrinsic } from '@polkadot/api/types';
 import { ethers } from 'ethers';
-import { useStore } from 'src/store';
-import { computed } from 'vue';
-import { useEthProvider } from '../custom-signature/useEthProvider';
 
 export const getInjectedExtensions = async (forceRequest = false): Promise<any[]> => {
   const selectedAddress = localStorage.getItem(LOCAL_STORAGE.SELECTED_ADDRESS);
@@ -77,7 +74,13 @@ export const castMobileSource = (source: string): string => {
   return source;
 };
 
-export const addToEvmProvider = ({
+export const getEvmProvider = () => {
+  // Todo: integrate with other wallet
+  const metamaskProvider = typeof window !== 'undefined' && window.ethereum;
+  return metamaskProvider;
+};
+
+export const addToMetamask = ({
   tokenAddress,
   symbol,
   decimals,
@@ -115,9 +118,9 @@ export const addToEvmWallet = ({
   decimals: number;
   image: string;
 }): void => {
-  const { ethProvider } = useEthProvider();
-  if (!ethProvider.value) return;
-  addToEvmProvider({ tokenAddress, symbol, decimals, image, provider: ethProvider.value });
+  const provider = getEvmProvider();
+  if (!provider) return;
+  addToMetamask({ tokenAddress, symbol, decimals, image, provider });
 };
 
 export const getDeepLinkUrl = (wallet: SupportWallet): string | false => {
@@ -132,8 +135,8 @@ export const getDeepLinkUrl = (wallet: SupportWallet): string | false => {
 
 export const checkIsWalletExtension = async (): Promise<boolean> => {
   const isSubstrateDappBrowser = await getInjectedExtensions();
-  const isEvmWalletExtension = typeof window.ethereum !== 'undefined';
-  return Boolean(isSubstrateDappBrowser.length || isEvmWalletExtension);
+  const isMetamask = typeof window.ethereum !== 'undefined';
+  return Boolean(isSubstrateDappBrowser.length || isMetamask);
 };
 
 export const checkIsEthereumWallet = (wallet: SupportWallet): boolean => {

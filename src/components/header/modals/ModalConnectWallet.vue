@@ -53,6 +53,11 @@ export default defineComponent({
       type: Function,
       required: true,
     },
+    isEvmOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   setup() {
     const nativeWallets = computed(() => {
@@ -104,10 +109,10 @@ export default defineComponent({
 .title--account-type {
   font-weight: 400;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 17px;
   color: $gray-5;
   text-align: left;
-  margin-left: 8px;
+  margin-left: 21px;
 }
 
 .box__row--wallet {

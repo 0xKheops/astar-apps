@@ -23,12 +23,9 @@
               : 'assets.nativeAccount'
           )
         }}</span>
-        <span
-          v-if="isLockdropAccount"
-          class="text--switch-account"
-          @click="toggleEvmWalletSchema"
-          >{{ $t(isH160 ? 'assets.switchToNative' : 'assets.switchToEvm') }}</span
-        >
+        <span v-if="isLockdropAccount" class="text--switch-account" @click="toggleMetaMaskSchema">{{
+          $t(isH160 ? 'assets.switchToNative' : 'assets.switchToEvm')
+        }}</span>
       </div>
 
       <div class="border--separator" />
@@ -72,7 +69,7 @@
         <span>{{ $t('assets.totalBalance') }}</span>
         <q-skeleton v-if="isSkeleton" animation="fade" class="skeleton--md" />
         <span v-else class="text--total-balance">
-          ${{ $n(balUsd || 0 + ttlErc20Amount + ttlNativeXcmUsdAmount) }}
+          ${{ $n(balUsd + ttlErc20Amount + ttlNativeXcmUsdAmount) }}
         </span>
       </div>
     </div>
@@ -92,7 +89,7 @@ import {
   useWalletIcon,
 } from 'src/hooks';
 import { checkIsNullOrUndefined } from 'src/hooks/helper/common';
-import { useEvmAccount } from 'src/hooks/custom-signature/useEvmAccount';
+import { useMetamask } from 'src/hooks/custom-signature/useMetamask';
 import {
   getEvmMappedSs58Address,
   getShortenAddress,
@@ -126,12 +123,12 @@ export default defineComponent({
     const balUsd = ref<number | null>(null);
     const isCheckingSignature = ref<boolean>(false);
     const isLockdropAccount = ref<boolean>(false);
-    const { toggleEvmWalletSchema } = useConnectWallet();
+    const { toggleMetaMaskSchema } = useConnectWallet();
     const { currentAccount, currentAccountName } = useAccount();
     const { width, screenSize } = useBreakpoints();
     const { balance } = useBalance(currentAccount);
     const { nativeTokenUsd } = usePrice();
-    const { requestSignature } = useEvmAccount();
+    const { requestSignature } = useMetamask();
     const { iconWallet } = useWalletIcon();
 
     const store = useStore();
@@ -253,7 +250,7 @@ export default defineComponent({
       isLockdropAccount,
       getShortenAddress,
       copyAddress,
-      toggleEvmWalletSchema,
+      toggleMetaMaskSchema,
       isSkeleton,
     };
   },

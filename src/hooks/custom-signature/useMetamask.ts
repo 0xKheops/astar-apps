@@ -1,18 +1,16 @@
 import { ref, watch } from 'vue';
 import { useEthProvider } from './useEthProvider';
 
-export function useEvmAccount() {
+export function useMetamask() {
   const { ethProvider } = useEthProvider();
   const loadedAccounts = ref<string[]>([]);
 
   const requestAccounts = async () => {
-    let provider = ethProvider.value;
-
-    if (!provider) {
-      throw new Error('Cannot detect any EVM Account');
+    if (!ethProvider.value) {
+      throw new Error('Cannot detect Metamask');
     }
 
-    const accounts = (await provider.request({
+    const accounts = (await ethProvider.value.request({
       method: 'eth_requestAccounts',
     })) as string[];
     loadedAccounts.value = accounts;
@@ -36,7 +34,7 @@ export function useEvmAccount() {
   };
 
   watch(ethProvider, () => {
-    if (ethProvider.value?.isMetaMask || ethProvider.value?.isTalisman) {
+    if (ethProvider.value?.isMetaMask) {
       const ethereum = ethProvider.value;
 
       ethereum.on('accountsChanged', (accounts: string[]) => {
